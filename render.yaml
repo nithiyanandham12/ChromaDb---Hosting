@@ -4,7 +4,7 @@ services:
     env: python
     pythonVersion: 3.11.9
     buildCommand: pip install --upgrade pip && pip install -r requirements_simple.txt
-    startCommand: python start.py
+    startCommand: uvicorn main_simple:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: API_KEY
         sync: false
