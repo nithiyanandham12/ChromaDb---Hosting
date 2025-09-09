@@ -1,0 +1,214 @@
+{
+  "info": {
+    "name": "ChromaDB FastAPI - Deployed API",
+    "description": "Complete CRUD operations for ChromaDB FastAPI deployed at https://chromadb-hosting.onrender.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "cSC3pej89xYEBKlFjHFs6I3wfyQmAh0n",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://chromadb-hosting.onrender.com",
+      "type": "string"
+    },
+    {
+      "key": "api_key",
+      "value": "cSC3pej89xYEBKlFjHFs6I3wfyQmAh0n",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        },
+        "description": "Check if the API is running (no authentication required)"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Document (Custom ID)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"ml-doc-001\",\n  \"text\": \"Machine learning is a subset of artificial intelligence that focuses on algorithms and statistical models. It enables computers to learn and make decisions from data without being explicitly programmed.\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/add",
+          "host": ["{{base_url}}"],
+          "path": ["add"]
+        },
+        "description": "Add a document with custom ID"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Document (Auto ID)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"Deep learning uses artificial neural networks with multiple layers to model and understand complex patterns in data. It's particularly effective for image recognition and speech processing.\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/add",
+          "host": ["{{base_url}}"],
+          "path": ["add"]
+        },
+        "description": "Add a document with auto-generated ID"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Document",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/get/ml-doc-001",
+          "host": ["{{base_url}}"],
+          "path": ["get", "ml-doc-001"]
+        },
+        "description": "Get a document by ID"
+      },
+      "response": []
+    },
+    {
+      "name": "Update Document",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"ml-doc-001\",\n  \"text\": \"UPDATED: Machine learning is a powerful subset of artificial intelligence that focuses on algorithms and statistical models. It enables computers to learn and make intelligent decisions from data without being explicitly programmed for every scenario.\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/update",
+          "host": ["{{base_url}}"],
+          "path": ["update"]
+        },
+        "description": "Update an existing document"
+      },
+      "response": []
+    },
+    {
+      "name": "Search Documents - Machine Learning",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/search?query=machine learning&limit=5",
+          "host": ["{{base_url}}"],
+          "path": ["search"],
+          "query": [
+            {
+              "key": "query",
+              "value": "machine learning"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        },
+        "description": "Search for machine learning related content"
+      },
+      "response": []
+    },
+    {
+      "name": "Search Documents - AI",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/search?query=artificial intelligence&limit=5",
+          "host": ["{{base_url}}"],
+          "path": ["search"],
+          "query": [
+            {
+              "key": "query",
+              "value": "artificial intelligence"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        },
+        "description": "Search for artificial intelligence related content"
+      },
+      "response": []
+    },
+    {
+      "name": "Search Documents - Web Development",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/search?query=web development&limit=5",
+          "host": ["{{base_url}}"],
+          "path": ["search"],
+          "query": [
+            {
+              "key": "query",
+              "value": "web development"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        },
+        "description": "Search for web development related content"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Document",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/delete/ml-doc-001",
+          "host": ["{{base_url}}"],
+          "path": ["delete", "ml-doc-001"]
+        },
+        "description": "Delete a document by ID"
+      },
+      "response": []
+    }
+  ]
+}
